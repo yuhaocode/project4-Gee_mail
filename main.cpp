@@ -133,9 +133,10 @@ int main(){
                             string passphrase;
                             passphrase.clear();
                             getline(cin,passphrase);
-                            if(Find(m_ID_set,m_ID)){
+                            int temp=convert(m_ID);
+                            if(Find(m_ID_set,temp)){
                                 //char* temp_ID=&(MessageTable[m_ID][0]);
-                                cout<<decrypt(read(convert(MessageTable[m_ID][0])),passphrase)<<endl;
+                                cout<<decrypt(read(convert(MessageTable[temp][0])),passphrase)<<endl;
                                 cout<<"B(back to previous level) H(home)"<<endl;
                                   a:
                                     string jump;
