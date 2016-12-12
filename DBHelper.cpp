@@ -42,6 +42,10 @@ bool login(string user,string pwd)
 	DBConnector connector("gee_email.db");
 	vector<vector<string> >res = connector.execute_show(str);//result, if is null set the value as null.
 	connector.disconnectDB();
+	//if(res == NULL) return false;
+	if(res.size()==0){
+    	return false;
+       }
 	if(res[0][0] == pwd){
 	    return true;
 	}
@@ -95,6 +99,7 @@ vector<vector<string> > receive(string curent_user)
        }
     }
 	connector.disconnectDB();
+	//cout << "messages "<<res.size() << endl;
 	return res;
 }
 
